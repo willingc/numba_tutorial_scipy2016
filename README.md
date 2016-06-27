@@ -1,3 +1,7 @@
+# Numba: Tell those C++ bullies to get lost 
+
+This is the repository for the Scipy 2016 tutorial.  The tutorial will be presented as a set of Jupyter notebooks with exercises sprinkled throughout.
+
 1. [Installation](#installation-instructions)
 2. [Optional extras](#optional-extras)
 3. [Check your installation](#check-installation)
@@ -7,7 +11,7 @@
 
 We _strongly_, *strongly*, __strongly__ encourage you to use `conda` to install the required packages for this tutorial.  There are non-Python dependencies required that make manual installation or installing with `pip` very involved.  
 
-Note also that this tutorial is written in Python 3.  No guarantees of any kind are made that it will be compatible with Python 2.
+Note also that this tutorial is written for  Python 3.5.  Most things will still work on Python 3.4.  No guarantees of any kind are made that it will be compatible with Python 2.
 
 ## Regarding `matplotlib`
 
@@ -91,6 +95,12 @@ If that installed successfully then you can continue to install the rest of the 
 
 ```console
 pip install numpy matplotlib jupyter ipython numba line_profiler 
+```
+
+or 
+
+```console
+pip install -r requirements.txt
 ```
 
 # Optional extras
