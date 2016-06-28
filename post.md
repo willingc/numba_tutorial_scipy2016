@@ -19,43 +19,41 @@ But a few technical hurdles led to scrapping this idea, which proved to be inade
 Learning about treecodes is great (we like treecodes!), but the goal is to introduce Numba and cover a broad, if not fully comprehensive, range of features. 
 As I worked on the treecode example, I found that I had to shoehorn Numba features into odd places in the code. 
 It felt like I was introducing these features in ways that I would not otherwise recommend. 
-Worse, in my efforts to squeeze things in, I ended up rewriting more and more of the original code.  
+Worse, in my efforts to squeeze things in, I ended up rewriting more and more of the original code. 
 That's not how the Numba experience should be.  
 
-To speed up your Python code with Numba, you first profile the code to find bottlenecks, then accelerate the problematic portions with minimal code changes.  
-You don't want to refactor your entire package and neither does anyone else.  
-This is the use case that tools like SWIG and Cython help meet.  
-Again, we don't want to teach Numba the "wrong way" in the service of breadth of instruction.  
+Accelerating your Python code with Numba starts with profiling the code to find bottlenecks. 
+The Numba way is to then apply minimal code changes to performance-critical sections and gain substantial speed-ups. 
+You don't want to refactor your entire package. 
+The treecode application example was leading us to teach Numba the "wrong way" and we were troubled by this.  
 
-The final nail in the coffin of the treecode tutorial was recursion.  
-Specifically, the lack of support for recursion in Numba (as of version 0.26).  
-Numba uses type-inference to compile Python code using LLVM and recursion presents a tricky problem in this regard.  
-Will you repeat the type-inference and compilation step at each call of a recursive function?  
-That will tank any possible performance gains, and likely provide slower code overall.  
-
-Recursion is the simplest way to contruct and traverse tree-like data structures.  
-This missing feature left us with three options.  
-
-The first option: use Numba to accelerate the bottlenecks and keep the recursive functions in pure Python.  
-This worked, but it was slow.  
-So slow, in fact, that the naive Numba-accelerated direct-summation algorithm outperformed the more algorithmically efficient Numba-accelerated treecode.  
-Barnes-Hut treecode is O(n log n).  Direct summation is O(n^2).  With a large enough problem, the treecode will eventually win out.  
-It turns out a "large enough problem" is too big to fit in memory on most laptops which does not make for a good tutorial experience.  
+The final nail in the coffin of the treecode example was that (as of version 0.26) Numba had no support for recursion, which is the simplest way to contruct and traverse tree-like data structures. 
+Recursion is especially tricky because Numba uses type-inference to compile Python code using LLVM. 
+Should it repeat the type-inference and compilation steps at each call of a recursive function?
+That would tank performance.  
+ 
+Lack of recursion support left us with three options. 
+The first option: use Numba to accelerate the bottlenecks and keep the recursive functions in pure Python. 
+This worked, but it was slow. 
+So slow, in fact, that the naive Numba-accelerated direct-summation algorithm outperformed the more algorithmically efficient Numba-accelerated treecode. 
+The Barnes-Hut algorithm scales as O(n log n) and direct summation as O(n^2 ): 
+the treecode will outperform direct summation with a large-enough problem. 
+In our tests, a "large-enough problem" was too big to fit in memory on most laptops, which does not make for a good tutorial experience.  
 
 The second option: use an iterative method to construct and traverse the tree.
-Any recursive algorithm has a non-recursive counterpart and Numba will support tree traversal this way.  
-I started to implement this and then imagined myself saying this during the tutorial.  
-"Numba is a powerful and convenient tool to help accelerate your existing scientific codes.  
-And it's easy to use, too!  We'll begin by manually programming our own octree stack with push and pop methods..."
+Any recursive algorithm has a non-recursive counterpart and Numba will support tree traversal this way. 
+I started to implement that and then imagined myself saying this during the tutorial: 
+_"Numba is a powerful and convenient tool to help accelerate your existing scientific codes. 
+And it's easy to use, too!  We'll begin by manually programming our own octree stack with push and pop methods..."_ Ugh.
 
-We went with the third option: change the tutorial application.  
-We think you'll like it!  We're going to spend time working on an iterative pressure Poisson solver and even
-delve into some (beginner) multigrid stuff.  And yes, there will be a smattering of "contrived" examples but 
-we think they'll provide a solid foundation and reference for applying these lessons to your own projects.  
+We went with the third option: change the tutorial application. 
+We think you'll like it!  We'll work on an iterative pressure Poisson solver and even
+delve into some (beginner) multigrid stuff. 
+Yes, there will be a smattering of semi-contrived examples but we think they'll provide a solid foundation and reference for applying these lessons to your own projects.  
 
-We hope you can still join us on July 11th!  If not, you can always catch it on YouTube later!
+If you can't join us on July 11th at Austin, catch the tutorial later on YouTube!
 
-One final addendum:
-We shared some of this saga with Travis Oliphant at PyCon2016 and through the unceasing efforts of Stan Seibert and
-the Numba team, support for direct recursion will be available in Numba 0.27, slated for release the week of July 7th.  
-Just in time for SciPy!  But sadly, not for the treecode tutorial.  Maybe we'll see you next year?
+A final addendum:  
+We shared some of this saga with Travis Oliphant at PyCon2016 and thanks to the unceasing efforts of Stan Seibert and the Numba team, support for direct recursion will be available in Numba 0.27, slated for release the week of July 7th.  Just in time for SciPy!  But sadly, not for the treecode tutorial.  Maybe we'll see you next year?
+
+https://twitter.com/teoliphant/status/744972577056002048
