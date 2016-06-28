@@ -1,20 +1,28 @@
-We are changing the application example for our Numba tutorial at SciPy 2016. Here’s why.
+# Numba: Tell those C++ bullies to get lost
 
-Barba group member Gil Forsyth and Professor Barba are presenting the tutorial "Numba: Tell those C++ bullies to get lost" on July 11th, at SciPy2016 in Austin, TX.  
+This is the title of our [SciPy 2016](http://scipy2016.scipy.org/) tutorial, where we take aim at those who claim Python is not for science because its performance stinks. 
+_Wake up, world!_ 
+You've been able to make Python codes fast for a long time, with CPython, Swig, and good NumPy idioms. 
+But there's a new kid on the block that blows it all out of the water: **Numba**.
 
-We're shifting towards a series of separate example applications. 
-We believe it will make for a better and more useful tutorial experience for all.  
-The original plan was that attendees would learn by doing, using Numba to accelerate an existing Barnes-Hut treecode step-by-step.  
-There were a few technical hurdles which led to scrapping this idea (more on this later), but it also proved to be a less than ideal teaching tool.  
+Our SciPy 2016 tutorial description promised this: 
+_"Come and learn how to accelerate your existing Python code by an order (or orders!) of magnitude using Numba. Join us for this tutorial as we take an existing NumPy-based Barnes-Hut Treecode and rewrite it using Numba. Barnes-Hut is an approximation algorithm for reducing n-body problems from O(n^2) to O(n log n). Don't know anything about treecodes? That's ok! You'll learn that, too!"_
 
-Foremost, this is a tutorial on how to use Numba.  
-Learning about treecodes is great (we like treecodes!), but the goal is to introduce Numba and cover a broad, if not fully comprehensive, swath of available features.  
-In constructing the first draft, I found myself attempting to shoehorn Numba features into odd places in the code.
-This was in the service of introducing these features, but introduced them in ways that I would not otherwise recommend.  
-Furthermore, in my attempts to squeeze things in, I ended up rewriting more and more of the original code.  
-This runs counter to the proper use of Numba.  
+In this blog post, we explain why we had to change how we deliver on our promise: you will *still* learn how to accelerate your Python code using Numba, but we won't be using a Barnes-Hut treecode as the application example.
 
-The typical way you would use Numba is to first profile your code to find bottlenecks, then accelerate the problematic portions with minical code changes.  
+Instead of a treecode, we'll use a series of separate example applications. 
+We decided it will make for a better and more useful tutorial experience for all. 
+Our plan for the tutorial is that participants *learn by doing*, using Numba to accelerate an existing code. 
+The original idea was to speed-up a Barnes-Hut treecode step-by-step. 
+But a few technical hurdles led to scrapping this idea, which proved to be inadequate for teaching Numba, given its current feature set.  
+
+Learning about treecodes is great (we like treecodes!), but the goal is to introduce Numba and cover a broad, if not fully comprehensive, range of features. 
+As I worked on the treecode example, I found that I had to shoehorn Numba features into odd places in the code. 
+It felt like I was introducing these features in ways that I would not otherwise recommend. 
+Worse, in my efforts to squeeze things in, I ended up rewriting more and more of the original code.  
+That's not how the Numba experience should be.  
+
+To speed up your Python code with Numba, you first profile the code to find bottlenecks, then accelerate the problematic portions with minimal code changes.  
 You don't want to refactor your entire package and neither does anyone else.  
 This is the use case that tools like SWIG and Cython help meet.  
 Again, we don't want to teach Numba the "wrong way" in the service of breadth of instruction.  
