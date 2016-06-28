@@ -2,7 +2,7 @@
 
 This is the title of our [SciPy 2016](http://scipy2016.scipy.org/) tutorial, where we take aim at those who claim Python is not for science because its performance stinks. 
 _Wake up, world!_ 
-You've been able to make Python codes fast for a long time, with CPython, Swig, and good NumPy idioms. 
+You've been able to make Python codes fast for a long time, with Cython, Swig, and good NumPy idioms. 
 But there's a new kid on the block that blows it all out of the water: **Numba**.
 
 Our SciPy 2016 tutorial description promised this: 
