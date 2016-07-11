@@ -1,0 +1,130 @@
+name: numbatutorial
+channels: !!python/object/new:ruamel_yaml.comments.CommentedSeq
+  listitems:
+  - conda-forge
+  - defaults
+  state:
+    _yaml_format: !!python/object:ruamel_yaml.comments.Format
+      _flow_style: false
+    _yaml_line_col: !!python/object:ruamel_yaml.comments.LineCol
+      col: 2
+      data:
+        0:
+        - 1
+        - 4
+        1:
+        - 2
+        - 4
+      line: 1
+dependencies:
+- appnope=0.1.0=py35_0
+- conda-forge::backports.shutil_get_terminal_size=1.0.0=py35_0
+- conda-forge::blas=1.1=openblas
+- conda-forge::ca-certificates=2016.2.28=1
+- conda-forge::certifi=2016.2.28=py35_0
+- conda-forge::cycler=0.10.0=py35_0
+- conda-forge::decorator=4.0.10=py35_0
+- conda-forge::entrypoints=0.2.2=py35_0
+- conda-forge::freetype=2.6.3=1
+- conda-forge::ipython=4.2.1=py35_1
+- conda-forge::ipython_genutils=0.1.0=py35_0
+- conda-forge::jinja2=2.8=py35_0
+- conda-forge::jsonschema=2.5.1=py35_0
+- conda-forge::jupyter_client=4.3.0=py35_0
+- conda-forge::jupyter_core=4.1.0=py35_0
+- conda-forge::jupyter_nbextensions_configurator=0.1.1=py35_0
+- conda-forge::libpng=1.6.23=0
+- conda-forge::libsodium=1.0.10=0
+- conda-forge::line_profiler=1.0=py35_0
+- conda-forge::markupsafe=0.23=py35_0
+- conda-forge::matplotlib=1.5.2=np111py35_4
+- conda-forge::mistune=0.7.3=py35_0
+- conda-forge::nbconvert=4.2.0=py35_0
+- conda-forge::nbformat=4.0.1=py35_0
+- conda-forge::ncurses=5.9=7
+- conda-forge::notebook=4.2.1=py35_0
+- conda-forge::numpy=1.11.1=py35_blas_openblas_200
+- conda-forge::openblas=0.2.18=2
+- conda-forge::openssl=1.0.2h=0
+- conda-forge::pexpect=4.1.0=py35_0
+- conda-forge::pickleshare=0.7.2=py35_0
+- conda-forge::prompt_toolkit=1.0.3=py35_0
+- conda-forge::psutil=4.2.0=py35_0
+- conda-forge::ptyprocess=0.5.1=py35_0
+- conda-forge::pygments=1.6=py35_0
+- conda-forge::pyparsing=2.1.1=py35_0
+- conda-forge::python=3.5.2=1
+- conda-forge::python-dateutil=2.5.2=py35_0
+- conda-forge::pytz=2016.3=py35_0
+- conda-forge::pyyaml=3.11=py35_0
+- conda-forge::pyzmq=14.7.0=py35_1
+- conda-forge::readline=6.2=0
+- conda-forge::setuptools=23.0.0=py35_0
+- conda-forge::simplegeneric=0.8.1=py35_0
+- conda-forge::sip=4.18=py35_0
+- conda-forge::six=1.10.0=py35_0
+- conda-forge::sqlite=3.13.0=1
+- conda-forge::terminado=0.6=py35_0
+- conda-forge::tk=8.5.19=0
+- conda-forge::tornado=4.2.1=py35_0
+- conda-forge::traitlets=4.2.2=py35_0
+- conda-forge::wcwidth=0.1.7=py35_0
+- conda-forge::xz=5.2.2=0
+- conda-forge::yaml=0.1.6=0
+- conda-forge::zeromq=4.1.5=0
+- conda-forge::zlib=1.2.8=3
+- ipykernel=4.3.1=py35_0
+- libgcc=4.8.5=1
+- llvmlite=0.11.0=py35_0
+- numba=0.26.0=np111py35_0
+- pip=8.1.2=py35_0
+- pyqt=4.11.4=py35_3
+- python.app=1.2=py35_4
+- qt=4.8.7=3
+- wheel=0.29.0=py35_0
+- pip:
+  - backports.shutil-get-terminal-size==1.0.0
+  - binaryornot==0.4.0
+  - certifi==2016.2.28
+  - chardet==2.3.0
+  - cookiecutter==1.4.0
+  - cycler==0.10.0
+  - decorator==4.0.10
+  - future==0.15.2
+  - ipython==4.2.1
+  - ipython-genutils==0.1.0
+  - jinja2==2.8
+  - jsonschema==2.5.1
+  - jupyter-client==4.3.0
+  - jupyter-contrib-core==0.2.0
+  - jupyter-core==4.1.0
+  - jupyter-nbextensions-configurator==0.1.1
+  - line-profiler==1.0
+  - markupsafe==0.23
+  - matplotlib==1.5.2
+  - mistune==0.7.3
+  - nbconvert==4.2.0
+  - nbformat==4.0.1
+  - notebook==4.2.1
+  - numpy==1.11.1
+  - pexpect==4.1.0
+  - pickleshare==0.7.2
+  - prompt-toolkit==1.0.3
+  - psutil==4.3.0
+  - ptyprocess==0.5.1
+  - pygments==1.6
+  - pyparsing==2.1.1
+  - python-contrib-nbextensions==alpha
+  - python-dateutil==2.5.2
+  - pytz==2016.3
+  - pyyaml==3.11
+  - pyzmq==14.7.0
+  - setuptools==23.0.0
+  - simplegeneric==0.8.1
+  - six==1.10.0
+  - terminado==0.6
+  - tornado==4.2.1
+  - traitlets==4.2.2
+  - wcwidth==0.1.7
+prefix: /Users/carol/anaconda/envs/numbatutorial
+
